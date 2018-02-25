@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.codehaus.jackson:jackson-mapper-lgpl:1.9.13" type="repository">
+    <properties maven-id="org.codehaus.jackson:jackson-mapper-lgpl:1.9.13" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-lgpl-1.9.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-lgpl-1.9.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

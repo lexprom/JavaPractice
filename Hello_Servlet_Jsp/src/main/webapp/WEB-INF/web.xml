@@ -7,10 +7,12 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet>
         <servlet-name>Hello servlet</servlet-name>
         <servlet-class>com.pak.HelloServlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Hello servlet</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
 </web-app>
