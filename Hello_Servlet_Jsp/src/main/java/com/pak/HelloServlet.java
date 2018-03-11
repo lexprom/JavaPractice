@@ -10,12 +10,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 
 public class HelloServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Client client = new Client(request.getParameter("name"),request.getParameter("pass"),Double.valueOf(request.getParameter("bc")),Double.valueOf(request.getParameter("money")));
+        Scanner in = new Scanner(new File("D:\\Program Files\\Java\\apache-tomcat-8.5.28\\webapps\\HelloServlet\\WEB-INF\\classes\\input.txt"));
+        String input = in.next();
+        String  [] inputs = input.split(" ");
+        Client client = new Client(inputs[0],inputs[1],Double.valueOf(inputs[2]),Double.valueOf(inputs[3]));
         request.setAttribute("id",client.getID_client());
         request.setAttribute("name",client.getName());
         request.setAttribute("pass",client.getPassword());

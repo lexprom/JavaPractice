@@ -2,7 +2,7 @@
 <html>
 <body>
 <title>Add User</title>
-<form method="get" action="hello">
+<form method="get" action="add">
     First name: <input type="text" name="name" value="Mickey"><br>
     Password: <input type="password" name="pass"><br>
     Bank account: <input type="text" name="bc"><br>
