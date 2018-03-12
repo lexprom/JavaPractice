@@ -11,7 +11,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <servlet>
         <servlet-name>Add User</servlet-name>
-        <servlet-class>com.pak.AddUser</servlet-class
+        <servlet-class>com.pak.AddUser</servlet-class>
     </servlet>
 
     <servlet-mapping>

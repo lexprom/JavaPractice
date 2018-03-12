@@ -38,6 +38,6 @@
         }
     }%>
 </table>
-<form action="newClient.jsp"><button>Add client</button></form>
+<form action="hello"><button>Add client</button></form>
 </body>
 </html>

@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Hello_Servlet_Jsp" />
-        <module name="HelloServlet" />
+        <module name="task1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Hello_Servlet_Jsp" target="1.7" />
-      <module name="HelloServlet" target="1.5" />
+      <module name="task1" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
