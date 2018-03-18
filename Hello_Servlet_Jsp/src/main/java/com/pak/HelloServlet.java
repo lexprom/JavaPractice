@@ -10,24 +10,24 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class HelloServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Scanner in = new Scanner(new File("C:\\Users\\pakas\\Downloads\\apache-tomcat-8.5.28\\webapps\\HelloServlet\\WEB-INF\\classes\\input.txt"));
+        Scanner in = new Scanner("D:\\Program Files\\Java\\apache-tomcat-8.5.28\\webapps\\HelloServlet\\WEB-INF\\classes\\com\\pak\\input.txt");
         if(in.hasNext()) {
             String input = in.next();
             String[] inputs = input.split(" ");
             try
             {
                 Client client = new Client(inputs[0], inputs[1], Double.valueOf(inputs[2]), Double.valueOf(inputs[3]));
-                request.setAttribute("id", client.getID_client());
-                request.setAttribute("name", client.getName());
-                request.setAttribute("pass", client.getPassword());
-                request.setAttribute("ba", client.getBankAccount());
-                request.setAttribute("money", client.getAmountMoney());
+                List<Client> clients = new ArrayList<>();
+                clients.add(client);
+                request.setAttribute("clientList",clients);
             }
             catch (ArrayIndexOutOfBoundsException e)
             {

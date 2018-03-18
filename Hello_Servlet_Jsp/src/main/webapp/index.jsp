@@ -20,24 +20,24 @@
     </tr>
     <tr><td>1</td><td>Thomas</td><td>qwerty123</td><td>11111</td><td>200$</td></tr>
     <%{
-        PrintWriter pw = response.getWriter();
+        PrintWriter pw = ;
         if (request.getAttribute("id") != null) {
-            pw.println("<tr><td>" + request.getAttribute("id").toString() + "</td>");
+            pw.println("<p>" + request.getAttribute("id").toString() + "</p>");
         }
         if (request.getAttribute("name") != null) {
-            pw.println("<td>" + request.getAttribute("name").toString() + "</td>");
+            pw.println("<p>" + request.getAttribute("name").toString() + "</p>");
         }
         if (request.getAttribute("pass") != null) {
-            pw.println("<td>" + request.getAttribute("pass").toString() + "</td>");
+            pw.println("<p>" + request.getAttribute("pass").toString() + "</p>");
         }
         if (request.getAttribute("ba") != null) {
-            pw.println("<td>" + request.getAttribute("ba").toString() + "</td>");
+            pw.println("<p>" + request.getAttribute("ba").toString() + "</p>");
         }
         if (request.getAttribute("money") != null) {
-            pw.println("<td>" + request.getAttribute("money").toString() + "</td></tr>");
+            pw.println("<p>" + request.getAttribute("money").toString() + "</p>");
         }
     }%>
 </table>
-<form action="hello"><button>Add client</button></form>
+<form action="newClient.jsp"><button>Add client</button></form>
 </body>
 </html>

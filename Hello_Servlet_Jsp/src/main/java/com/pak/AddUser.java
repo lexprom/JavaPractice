@@ -12,17 +12,24 @@ import java.util.Scanner;
 
 public class AddUser extends HttpServlet
 {
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (FileWriter writer = new FileWriter("C:\\Users\\pakas\\Downloads\\apache-tomcat-8.5.28\\webapps\\HelloServlet\\WEB-INF\\classes\\input.txt",true))
+    public void writeFile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try (FileWriter writer = new FileWriter("D:\\Program Files\\Java\\apache-tomcat-8.5.28\\webapps\\HelloServlet\\WEB-INF\\classes\\com\\pak\\input.txt",false))
         {
             writer.write(request.getParameter("name") + " " + request.getParameter("pass") + " " + request.getParameter("bc") + " " + request.getParameter("money") + "\n");
-            writer.flush();
-            request.getRequestDispatcher("/hello").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/hello").forward(request, response);
+            PrintWriter pw = new PrintWriter(writer);
+            pw.print("");
+            pw.close();
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+    {
+        writeFile(req,res);
     }
 }
