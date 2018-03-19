@@ -19,25 +19,12 @@
         <th>Amount of money</th>
     </tr>
     <tr><td>1</td><td>Thomas</td><td>qwerty123</td><td>11111</td><td>200$</td></tr>
-    <%{
-        PrintWriter pw = ;
-        if (request.getAttribute("id") != null) {
-            pw.println("<p>" + request.getAttribute("id").toString() + "</p>");
-        }
-        if (request.getAttribute("name") != null) {
-            pw.println("<p>" + request.getAttribute("name").toString() + "</p>");
-        }
-        if (request.getAttribute("pass") != null) {
-            pw.println("<p>" + request.getAttribute("pass").toString() + "</p>");
-        }
-        if (request.getAttribute("ba") != null) {
-            pw.println("<p>" + request.getAttribute("ba").toString() + "</p>");
-        }
-        if (request.getAttribute("money") != null) {
-            pw.println("<p>" + request.getAttribute("money").toString() + "</p>");
-        }
-    }%>
+    <c:forEach items="${clientList}" var="item">
+        ${item}
+    </c:forEach>
+
 </table>
+<a href="/HelloServlet/add">add new client</a>
 <form action="newClient.jsp"><button>Add client</button></form>
 </body>
 </html>
