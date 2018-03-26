@@ -1,4 +1,5 @@
 <%@ page import="java.io.PrintWriter" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <head>
     <title>Clients</title>
@@ -24,7 +25,6 @@
     </c:forEach>
 
 </table>
-<a href="/HelloServlet/add">add new client</a>
-<form action="newClient.jsp"><button>Add client</button></form>
+<a href="/HelloServlet/add">Add client</a>
 </body>
 </html>

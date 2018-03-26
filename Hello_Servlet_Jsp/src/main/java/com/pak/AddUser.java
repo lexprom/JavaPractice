@@ -13,16 +13,14 @@ import java.util.Scanner;
 public class AddUser extends HttpServlet
 {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (FileWriter writer = new FileWriter("C:\\Users\\pakas\\Downloads\\apache-tomcat-8.5.29\\webapps\\HelloServlet\\input.txt",false))
         {
             writer.write(request.getParameter("name") + " " + request.getParameter("pass") + " " + request.getParameter("bc") + " " + request.getParameter("money") + "\n");
-//            this.getServletContext().getRequestDispatcher("/hello").forward(request, response);
             PrintWriter pw = new PrintWriter(writer);
             pw.print("");
             pw.close();
-            response.sendRedirect("/hello");
-            //redirect
+            response.sendRedirect("hello");
         }
         catch (IOException e)
         {
@@ -49,7 +47,5 @@ public class AddUser extends HttpServlet
     public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
     {
         this.getServletContext().getRequestDispatcher("/newClient.jsp").forward(req, res);
-
-//        writeFile(req,res);
     }
 }
