@@ -39,4 +39,9 @@ public class Client {
         return password;
     }
 
+    @Override
+    public String toString()
+    {
+        return getName() + " " + getPassword() + " " + getAmountMoney() + " " + getBankAccount() + "\n";
+    }
 }
