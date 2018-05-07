@@ -12,13 +12,15 @@ import java.io.*;
 public class AddClient extends HttpServlet
 {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         RequestDispatcher dispatcher = req.getRequestDispatcher("createClient.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         int account = Integer.parseInt(req.getParameter("account"));
@@ -26,7 +28,7 @@ public class AddClient extends HttpServlet
 
         Client bankClient = new Client(username, password, account, money);
 
-        FileOutputStream fout = new FileOutputStream("\\WEB-INF\\input.txt",true);
+        FileOutputStream fout = new FileOutputStream("C:\\Users\\pakas\\Downloads\\apache-tomcat-8.5.29\\webapps\\Servlet\\WEB-INF\\input.txt",true);
         fout.write((bankClient.toString()).getBytes());
         fout.close();
 
