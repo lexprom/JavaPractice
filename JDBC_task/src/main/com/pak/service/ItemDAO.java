@@ -1,6 +1,6 @@
-package main.webapp.com.pak.service;
+package com.pak.service;
 
-import main.webapp.com.pak.model.Item;
+import com.pak.model.Item;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,10 +12,6 @@ public class ItemDAO
 {
     private File file;
 
-    private int idCounter;
-
-    private String path = "\\resources\\items.txt";
-
     public ItemDAO(String filename) {
         ClassLoader classLoader = getClass().getClassLoader();
         file = new File(Objects.requireNonNull(classLoader.getResource(filename)).getFile());
@@ -24,14 +20,15 @@ public class ItemDAO
     public List<Item> getItems() {
         List<Item> items = new ArrayList<>();
         String line;
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            while ((line = reader.readLine()) != null) {
-                String[] words = line.split(":");
+        try (BufferedReader reader = new BufferedReader(new FileReader(file)))
+        {
+            while ((line = reader.readLine()) != null)
+            {
+                String[] words = line.split(" ");
                 items.add(new Item(words[0], Integer.parseInt(words[1]), words[2]));
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         return items;

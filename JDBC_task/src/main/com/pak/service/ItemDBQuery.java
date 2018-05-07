@@ -1,6 +1,6 @@
-package main.webapp.com.pak.service;
+package com.pak.service;
 
-import main.webapp.com.pak.model.Item;
+import com.pak.model.Item;
 
 import java.io.IOException;
 import java.sql.*;
@@ -13,7 +13,7 @@ public class ItemDBQuery
     //JDBC driver name,database URL,database credentials
     private static final String JDBC_Driver = "org.h2.Driver";
     private static final String JDBC_URL = "jdbc:h2:file:~/h2/app_db;DB_CLOSE_ON_EXIT=FALSE";
-    private static final String USER = "lexprom";
+    private static final String USER = "lex";
     private static final String PASS = "";
 
     public ItemDBQuery() throws IOException,SQLException,ClassNotFoundException
@@ -28,7 +28,7 @@ public class ItemDBQuery
                 "ID int NOT NULL," +
                 "Title varchar(20) NOT NULL,"+
                 "Price int NOT NULL," +
-                "Description varchar(20)" +
+                "Description varchar(100)" +
                 "PRIMARY KEY (ID));";
         createTableExecutor(query);
     }

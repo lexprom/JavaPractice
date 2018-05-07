@@ -1,4 +1,4 @@
-package main.webapp.com.pak.model;
+package com.pak.model;
 
 public class Item
 {
@@ -53,6 +53,6 @@ public class Item
 
     @Override
     public String toString() {
-        return id +":"+title+":"+price+":"+desc+"\n";
+        return id +" "+title+" "+price+" "+desc+"\n";
     }
 }
