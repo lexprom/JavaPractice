@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<title>Add Bill</title>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <form action="#" th:action="@{${userId == 'all' ? '/home-admin' : '/home/' + userId}}" method="get">
+        <button class="btn btn-default btn-sm">Home</button>
+    </form>
+    <div>
+        Fill a bank account data
+    </div>
+    <div class="form-group">
+        <form action="#" th:action="@{|/user/${user.id}/add-account|}" th:object="${account}" method="post">
+        <span class="input-group-addon">
+        <label>Account number</label><input class="form-control" type="text" th:field="*{accountNumber}"/></p>
+        </span>
+                <span class="input-group-addon">
+        <p><label>Amount</label><input class="form-control" type="number" th:field="*{amount}"/></p>
+        </span>
+                <span class="input-group-addon">
+        <p><button type="submit" class="add btn btn-primary">Add</button></p>
+        </span>
+        </form>
+    </div>
+</div>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    <form action="#" th:action="@{/users}" method="get">
+            <button class="btn" type="submit">Users</button>
+    </form>
+
+    <form action="#" th:action="@{/user/all/bills}" method="get">
+        <button class="btn" type="submit">Bills</button>
+    </form>
+    <form action="#" th:action="@{/user/all/operations}" method="get">
+        <button class="btn" type="submit">Operations</button>
+    </form>
+
+</body>
+</html>
