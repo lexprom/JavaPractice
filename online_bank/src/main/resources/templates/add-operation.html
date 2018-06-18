@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+      id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<title>Add Operation</title>
+<!------ Include the above in your HEAD tag ---------->
+<form action="#" th:action="@{${userId == 'all' ? '/home-admin' : '/home/' + userId}}" method="get">
+    <button class="btn btn-default btn-sm">Home</button>
+</form>
+<form action="#" th:action="@{|/user/${user.id}/add-operation|}" th:object="${operation}" method="post">
+    <p><label>Sender account number</label>
+        <select class="selectpicker" data-style="btn-info" th:field="*{senderId}">
+            <option th:each="account : ${user.accounts}"
+                    th:value="${account.id}"
+                    th:utext="${account.accountNumber}"/>
+        </select>
+    </p>
+    <p><label>Receiver account number</label>
+        <select class="selectpicker" data-style="btn-info" th:field="*{receiverId}">
+            <option th:each="account : ${accounts}"
+                    th:value="${account.id}"
+                    th:utext="${account.accountNumber}"/>
+        </select>
+    </p>
+    <p><label>Amount</label><input class="input-xlarge" type="number" th:field="*{amount}"/></p>
+    <p>
+        <button type="submit" class="btn btn-danger">Add</button>
+    </p>
+</form>
+</html>

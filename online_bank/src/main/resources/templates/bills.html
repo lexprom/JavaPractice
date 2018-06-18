@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+      id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>List of Bills</title>
+<div class="container">
+    <form action="#" th:action="@{${userId == 'all' ? '/home-admin' : '/home/' + userId}}" method="get">
+        <button class="btn btn-default btn-sm">Home</button>
+    </form>
+
+    <table class="table table-striped table-condensed">
+        <tr>
+            <th>Account number</th>
+            <th>Amount</th>
+        </tr>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.accountNumber}"/>
+            <td th:text="${account.amount}"/>
+        </tr>
+    </table>
+    <form action="#" th:action="@{|/user/${userId}/add-account|}" method="get">
+        <button type="submit" th:classappend="${hidden} ? 'w3-hide' : 'w3-show'" class="btn btn-success">Add
+            bill
+        </button>
+    </form>
+</div>
+</html>

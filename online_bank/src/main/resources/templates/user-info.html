@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>Profile</title>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">  <h4 >User Profile</h4></div>
+            <div class="panel-body">
+                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                    <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+
+
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                    <hr>
+                    <form action="#" th:action="@{|/${action}/${userId}/${returnUrl}|}" th:object="${user}" method="post">
+                    <ul class="container details" >
+                        <li><a >Login:</a><input class="glyphicon glyphicon-user one" style="width:150px;" type="text" th:field="*{login}"/></li>
+                        <li><a >Password:</a><input class="glyphicon glyphicon-user one" style="width:150px;" type="text" th:field="*{password}"/></li>
+                        <li><a >Name:</a><input class="glyphicon glyphicon-user one" style="width:150px;" type="text" th:field="*{name}"/></li>
+                        <li><a >Last name:</a><input class="glyphicon glyphicon-user one" style="width:150px;" type="text" th:field="*{lastname}"/></li>
+                        <li><a >Middle name:</a><input class="glyphicon glyphicon-user one" style="width:150px;" type="text" th:field="*{middlename}"/></li>
+                        <li><a >Admin</a><input class="glyphicon glyphicon-user one" style="width:50px;" type="checkbox" th:field="*{admin}"/></li>
+                    </ul>
+                        <button type="submit" th:classappend="${show} ? 'w3-hide' : 'w3-show'" class="btn">Save</button>
+                        <button type="submit" th:classappend="${show} ? 'w3-show' : 'w3-hide'" class="btn">Close</button>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

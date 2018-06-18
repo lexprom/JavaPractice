@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+      id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>Transactions</title>
+<div class="container">
+    <form action="#" th:action="@{${userId == 'all' ? '/home-admin' : '/home/' + userId}}" method="get">
+        <button class="btn btn-default btn-sm">Home</button>
+    </form>
+    <form action="#" th:action="@{|/user/${userId}/operations|}" th:object="${rollbackOperation}" method="post">
+        <div class="row">
+            <div class="span5">
+
+                <table class="table table-striped table-condensed">
+                    <tr>
+                        <th/>
+                        <th>Sender bill</th>
+                        <th>Receiver bill</th>
+                        <th>Amount</th>
+                        <th>Cancel</th>
+                    </tr>
+                    <tr th:each="operation : ${operations}" th:action="@{/registration}">
+                        <td><input type="radio" th:field="*{operationId}" th:value="${operation.id}"/></td>
+                        <td th:text="${operation.sender.accountNumber}"/>
+                        <td th:text="${operation.receiver.accountNumber}"/>
+                        <td th:text="${operation.amount}"/>
+                        <td><input type="checkbox" th:checked="${operation.reverse}" disabled="true"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <button type="submit" th:classappend="${admin} ? 'w3-show' : 'w3-hide'" class="btn btn-danger">Cancel
+            operation
+        </button>
+    </form>
+    <form action="#" th:action="@{|/user/${userId}/add-operation|}" method="get">
+        <button type="submit" th:classappend="${admin} ? 'w3-hide' : 'w3-show'" class="btn btn-success">Add operation
+        </button>
+    </form>
+</div>
+</html>

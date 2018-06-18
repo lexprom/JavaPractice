@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<form action="#" th:action="@{|/show-user/${userId}/home|}" method="get">
+    <button class="btn" type="submit">View Profile</button>
+</form>
+
+<br>
+<form action="#" th:action="@{|/edit-user/${userId}/home|}" method="get">
+    <button class="btn" type="submit">Edit Profile</button>
+</form>
+
+<br>
+<form action="#" th:action="@{|/user/${userId}/bills|}" method="get">
+    <button class="btn" type="submit">Bills</button>
+</form>
+
+<br>
+<form action="#" th:action="@{|/user/${userId}/operations|}" method="get">
+    <button class="btn" type="submit">Operations</button>
+</form>
+
+<br>
+<form action="#" th:action="@{/home-admin}" method="get">
+    <button type="submit" th:classappend="${admin} ? 'w3-show' : 'w3-hide'"
+            class="btn">Admin mode
+    </button>
+</form>
+</body>
+</html>

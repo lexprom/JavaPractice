@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>List of Users</title>
+<div class="container">
+    <form action="#" th:action="@{${userId == 'all' ? '/home-admin' : '/home/' + userId}}" method="get">
+        <button class="btn btn-default btn-sm">Home</button>
+    </form>
+    <form action="#" th:action="@{/users}" th:object="${userDto}" method="post">
+    <div class="row">
+        <div class="span5">
+            <table class="table table-striped table-condensed">
+                <tr>
+                    <th/>
+                    <th>Login</th>
+                    <th>Admin</th>
+                </tr>
+                <tr th:each="user : ${users}" th:action="@{/registration}">
+                    <td><input type="radio" th:field="*{userId}" th:value="${user.id}"/></td>
+                    <td th:text="${user.login}"/>
+                    <td><input type="checkbox" th:checked="${user.admin}" disabled="true"/></td>
+                </tr>
+            </table>
+    </div>
+    </div>
+
+    <button type="submit" name="action" value="remove" class="btn btn-danger">Delete User</button>
+    <button type="submit" name="action" value="edit" class="btn">Edit User</button>
+    <button type="submit" name="action" value="show" class="btn">Show User</button>
+    </form>
+    <form action="#" th:action="@{/add-user}" method="get">
+        <button type="submit" class="btn btn-success">Add User</button>
+    </form>
+</div>
+</html>
